@@ -1,0 +1,194 @@
+:root{
+  --forest:#01472e;--sage:#ccd5ae;--olive:#e9edc9;--cream:#fefae0;--moss:#a3b18a;
+  --ombra:0 25px 50px -12px rgba(1,71,46,.2);
+  --curva:cubic-bezier(.16,1,.3,1);
+  --display:"Anton",Impact,"Arial Narrow",sans-serif;
+  --testo:"Inter",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--forest);font-family:var(--testo);font-weight:400;font-size:1.0625rem;line-height:1.65;overflow-x:hidden}
+/* Rumore SVG fisso su tutta la pagina */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+img{max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--moss);outline-offset:4px}
+.display{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.75;letter-spacing:-.05em;margin:0}
+.etichetta{font-size:.75rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;margin:0}
+p{margin:0 0 1rem}
+
+/* Pulsanti */
+.azioni{display:flex;flex-wrap:wrap;gap:1rem}
+.btn{display:inline-block;padding:1.1rem 2.2rem;border-radius:999px;font-family:var(--testo);font-size:.8rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;text-decoration:none;
+  border:2px solid transparent;transition:transform .5s var(--curva),background .3s,color .3s;cursor:pointer}
+.btn:hover{transform:translateY(-4px)}
+.btn-chiaro{background:var(--cream);color:var(--forest)}
+.btn-bordo{border-color:var(--cream);color:var(--cream)}
+.btn-bordo:hover{background:var(--cream);color:var(--forest)}
+.btn-scuro{background:var(--forest);color:var(--cream)}
+.btn-scuro-bordo{border-color:var(--forest);color:var(--forest)}
+.btn-scuro-bordo:hover{background:var(--forest);color:var(--cream)}
+
+/* Prima schermata */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:6rem 1.5rem 5rem;background:var(--forest);color:var(--cream);border-radius:0 0 5rem 5rem;overflow:hidden}
+.hero h1{font-size:min(23vw,26rem);position:relative;z-index:1;margin:1.4rem 0 0 -.02em}
+.hero .citta{margin-top:1.6rem;font-size:.95rem;letter-spacing:.4em;position:relative;z-index:2}
+.hero .sotto{margin:1.4rem 0 2rem;max-width:26ch;font-size:1.05rem;opacity:.9;position:relative;z-index:2}
+.hero .azioni{position:relative;z-index:2}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(5deg)}}
+@media (max-width:52rem){
+  .hero{padding-top:5rem}
+  }
+
+/* Pannelli con le foto */
+.pannello{margin:1.5rem .75rem 0;padding:5rem 1.5rem 5.5rem;border-radius:5rem;overflow:hidden}
+.pannello.sage{background:var(--sage)}
+.pannello.olive{background:var(--olive)}
+.pannello.moss{background:var(--moss)}
+.pannello .wrap{max-width:70rem;margin:0 auto}
+.pannello h2{font-size:15vw;margin-bottom:3.5rem}
+.riga{display:flex;align-items:center;justify-content:space-between;gap:4rem}
+.riga.inversa{flex-direction:row-reverse}
+.riga img{flex:0 1 34rem;width:min(34rem,100%);height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:2.5rem;box-shadow:var(--ombra);cursor:zoom-in;animation:fluttua 10s ease-in-out infinite}
+.riga .testo{flex:1;max-width:24rem}
+.riga .testo .etichetta{margin-bottom:1rem}
+.riga .testo p{font-size:1.2rem}
+@media (max-width:52rem){
+  .riga,.riga.inversa{flex-direction:column;align-items:flex-start;gap:2.5rem}
+  .pannello{padding:4rem 1.25rem 4.5rem;border-radius:3rem}
+  .pannello h2{margin-bottom:2.5rem}
+}
+
+/* Invito finale */
+.finale{margin:1.5rem .75rem 0;padding:5.5rem 1.5rem;background:var(--forest);color:var(--cream);border-radius:5rem;text-align:center}
+.finale h2{font-size:15vw;margin-bottom:2.5rem}
+.finale .indirizzo{font-size:1.15rem;margin-bottom:2rem}
+.finale .azioni{justify-content:center}
+@media (max-width:52rem){.finale{border-radius:3rem}}
+
+footer{padding:3rem 1.5rem 3.5rem;text-align:center}
+footer a{text-decoration:none;border-bottom:1px solid rgba(1,71,46,.4)}
+
+/* Pagina prezzi */
+.testata{background:var(--forest);color:var(--cream);border-radius:0 0 5rem 5rem;padding:6.5rem 1.5rem 5rem}
+.testata .torna{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;opacity:.85}
+.testata .torna:hover{opacity:1}
+.testata h1{font-size:min(23vw,18rem);margin:1rem 0 1.2rem -.02em}
+.testata .etichetta{font-size:.85rem;letter-spacing:.35em}
+.menu{max-width:56rem;margin:0 auto;padding:3rem .75rem 1rem;display:grid;gap:1.5rem}
+.categoria{padding:3rem 2.2rem 2.4rem;border-radius:2.5rem;box-shadow:var(--ombra)}
+.categoria.sage{background:var(--sage)}
+.categoria.olive{background:var(--olive)}
+.categoria.moss{background:var(--moss)}
+.categoria h2{font-size:clamp(2.6rem,9vw,5rem);margin-bottom:.6rem}
+.categoria .en{margin-bottom:1.4rem;opacity:.75}
+.voce{display:flex;justify-content:space-between;align-items:baseline;gap:1.2rem;padding:1.1rem 0;border-top:1px solid rgba(1,71,46,.25)}
+.voce strong{display:block;font-weight:700;font-size:1.1rem;line-height:1.3}
+.voce span.desc{display:block;font-size:.95rem;opacity:.8;margin-top:.15rem}
+.voce .prezzo{font-weight:700;white-space:nowrap;font-size:1.1rem}
+.servizio{max-width:56rem;margin:0 auto;padding:1rem .75rem 0}
+.servizio div{padding:1.6rem 2rem;border:2px solid var(--forest);border-radius:2.5rem;text-align:center;font-size:.8rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase}
+.fine-menu{max-width:56rem;margin:2.5rem auto 0;padding:0 .75rem;text-align:center}
+.fine-menu .azioni{justify-content:center}
+@media (max-width:40rem){.categoria{padding:2.4rem 1.4rem 1.8rem}.voce{flex-direction:column;gap:.3rem}}
+
+/* Comparsa dal basso */
+.rivela{opacity:0;transform:translateY(100px);transition:opacity 1.2s var(--curva),transform 1.2s var(--curva)}
+.rivela.visibile{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .hero-sfondo,.riga img{animation:none}
+  .rivela{opacity:1;transform:none;transition:none}
+  .btn{transition:none}
+  html{scroll-behavior:auto}
+}
+
+
+/* Foto grande dietro la prima schermata */
+.hero-sfondo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 40%;animation:zoom 26s ease-in-out infinite alternate}
+.hero-velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,71,46,.5),rgba(1,71,46,.3) 40%,rgba(1,71,46,.78))}
+.hero > *:not(.hero-sfondo):not(.hero-velo){position:relative;z-index:2}
+.hero h1{text-shadow:0 10px 50px rgba(1,71,46,.55)}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+@keyframes fluttua{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+/* Isola con le scorciatoie */
+.isola{position:fixed;top:1rem;left:50%;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:.2rem;padding:.4rem .45rem .4rem 1.3rem;
+  background:rgba(254,250,224,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(1,71,46,.12);border-radius:999px;
+  box-shadow:0 25px 50px -12px rgba(1,71,46,.35);white-space:nowrap}
+.isola .logo-i{font-family:var(--display);text-transform:uppercase;letter-spacing:-.02em;font-size:1.4rem;line-height:1;text-decoration:none;color:var(--forest);margin-right:.8rem}
+.isola a.vai{padding:.8rem 1.15rem;border-radius:999px;font-size:.68rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;text-decoration:none;color:var(--forest);transition:background .3s,color .3s}
+.isola a.vai:hover,.isola a.vai[aria-current="page"]{background:var(--forest);color:var(--cream)}
+@media (max-width:40rem){
+  .isola{top:.7rem;padding:.3rem .3rem .3rem 1rem;max-width:calc(100% - 1rem)}
+  .isola .logo-i{font-size:1.15rem;margin-right:.3rem}
+  .isola a.vai{padding:.7rem .7rem;font-size:.58rem;letter-spacing:.14em}
+}
+
+/* Foto a tutto schermo */
+.lightbox{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:1.2rem;background:rgba(1,71,46,.93);opacity:0;pointer-events:none;transition:opacity .4s var(--curva);cursor:zoom-out}
+.lightbox.aperta{opacity:1;pointer-events:auto}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:2.5rem;box-shadow:0 25px 50px -12px rgba(0,0,0,.5)}
+.lightbox .chiudi{position:absolute;top:1.2rem;right:1.4rem;color:var(--cream);font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase}
+
+
+/* Orario */
+#orario,#foto{scroll-margin-top:6rem}
+.finale .orario{margin:0 auto 2.4rem;padding:2rem 1.4rem 1.4rem;max-width:34rem;text-align:left;border:1px solid rgba(254,250,224,.35);border-radius:2.5rem}
+.finale .orario .etichetta{margin-bottom:1rem;opacity:.85}
+@media (max-width:40rem){
+  .isola{padding:.3rem .3rem .3rem .9rem}
+  .isola .logo-i{font-size:1.05rem;margin-right:.2rem}
+  .isola a.vai{padding:.7rem .5rem;font-size:.54rem;letter-spacing:.1em}
+}
+
+
+/* Logo a pallino nell'isola sui telefoni stretti */
+@media (max-width:26rem){
+  .isola .logo-i{font-size:0;margin-right:.1rem}
+  .isola .logo-i::before{content:"S";display:grid;place-items:center;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--forest);color:var(--cream);font-family:var(--display);font-size:1.15rem;line-height:1}
+}
+
+/* Striscia con lo slogan che scorre verso destra */
+.striscia{margin:1.5rem .75rem 0;overflow:hidden;background:var(--forest);color:var(--cream);border-radius:999px;box-shadow:var(--ombra)}
+.traccia{display:flex;width:max-content;animation:scorri-destra 40s linear infinite}
+.striscia:hover .traccia{animation-play-state:paused}
+.gruppo{display:flex;align-items:center;flex:none}
+.frase{font-family:var(--display);font-size:1.5rem;line-height:1;letter-spacing:.04em;text-transform:uppercase;padding:1.05rem 1.6rem;white-space:nowrap}
+.pallino{flex:none;width:.7rem;height:.7rem;border-radius:50%;background:var(--moss)}
+@keyframes scorri-destra{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media (max-width:40rem){.frase{font-size:1.2rem;padding:.9rem 1.2rem}}
+@media (prefers-reduced-motion:reduce){.traccia{animation:none}}
+
+
+/* Orario giorno per giorno */
+.settimana{list-style:none;margin:0;padding:0}
+.settimana li{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem 1.1rem;border-radius:999px}
+.settimana li + li{margin-top:.15rem}
+.settimana .gn{font-size:.8rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+.settimana .ore{font-size:1.5rem;line-height:1;letter-spacing:.01em;white-space:nowrap;margin:0}
+.settimana li.chiuso .ore{opacity:.6}
+.settimana li.oggi{background:var(--cream);color:var(--forest)}
+.settimana li.oggi .ore{opacity:1}
+@media (max-width:40rem){.settimana li{padding:.75rem .9rem}.settimana .gn{font-size:.72rem;letter-spacing:.16em}.settimana .ore{font-size:1.3rem}}
+
+
+/* Selettore di lingua */
+.isola .lingua{position:relative;margin-left:.3rem}
+.lingua-btn{display:flex;align-items:center;gap:.5rem;padding:.55rem .85rem;border:0;border-radius:999px;background:var(--forest);color:var(--cream);cursor:pointer;font:inherit}
+.lingua-btn .freccia{width:.45rem;height:.45rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .3s var(--curva)}
+.lingua.aperta .freccia{transform:rotate(-135deg) translateY(-2px)}
+.bandiera{display:inline-flex}
+.bandiera svg{display:block;width:1.7rem;height:1.2rem;border-radius:3px;box-shadow:0 0 0 1px rgba(1,71,46,.25)}
+.lingua-menu{position:absolute;top:calc(100% + .9rem);right:0;min-width:13.5rem;margin:0;padding:.5rem;list-style:none;display:none;
+  background:var(--cream);border:1px solid rgba(1,71,46,.15);border-radius:1.8rem;box-shadow:0 25px 50px -12px rgba(1,71,46,.35)}
+.lingua.aperta .lingua-menu{display:block}
+.lingua-menu button{display:flex;align-items:center;gap:.9rem;width:100%;padding:.75rem 1rem;border:0;border-radius:999px;background:none;color:var(--forest);font:inherit;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-align:left;cursor:pointer}
+.lingua-menu button:hover,.lingua-menu button[aria-current="true"]{background:var(--forest);color:var(--cream)}
+.lingua-menu .bandiera svg{box-shadow:0 0 0 1px rgba(1,71,46,.3)}
+@media (max-width:40rem){.lingua-btn{padding:.5rem .6rem;gap:.35rem}.isola .lingua{margin-left:.15rem}.bandiera svg{width:1.5rem;height:1.05rem}}
+@media (max-width:26rem){.lingua-btn .freccia{display:none}}
+.etichetta.en:empty{display:none}
+
+/* Russo: Anton non ha le lettere cirilliche, uso Oswald per i testi tradotti */
+html[lang="ru"] .display[data-t]{font-family:"Oswald","Anton",Impact,"Arial Narrow",sans-serif;font-weight:600;letter-spacing:-.01em;line-height:.9}
